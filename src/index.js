@@ -17,7 +17,7 @@ export default function App(){
                     element={<PageNotFound />}
                 />
                 <Route
-                    path="/donate"
+                    path="/donation"
                     element={<Donation/>}
                 />
             </Routes>
