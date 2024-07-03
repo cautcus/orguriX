@@ -37,7 +37,7 @@ export default function Footer() {
           <ul className="mt-12 flex justify-center gap-6 md:gap-8">
             <li>
               <a
-                href="/"
+                href="https://www.facebook.com/orgurix"
                 rel="noreferrer"
                 target="_blank"
                 className="text-green-900 transition hover:text-green-900/75"
@@ -60,7 +60,7 @@ export default function Footer() {
 
             <li>
               <a
-                href="/"
+                href="https://www.instagram.com/orgurix.in"
                 rel="noreferrer"
                 target="_blank"
                 className="text-green-900 transition hover:text-green-900/75"
@@ -83,7 +83,7 @@ export default function Footer() {
 
             <li>
               <a
-                href="/"
+                href="https://x.com/OrguriX"
                 rel="noreferrer"
                 target="_blank"
                 className="text-green-900 transition hover:text-green-900/75"
