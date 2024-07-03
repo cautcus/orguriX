@@ -41,7 +41,7 @@ const Banner = ({ onToggle }) => {
             </button>
             <a
               className="flex items-center justify-center gap-x-1 py-2 px-4 text-gray-700 hover:text-gray-900 font-medium duration-150 md:inline-flex"
-              href="/"
+              href="mailto:orgurix@gmail.com"
             >
               Contact sales
               <svg

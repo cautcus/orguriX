@@ -1,8 +1,8 @@
 import React from 'react'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
-import Team from '../components/team'
 import Donate from '../components/donate'
+import Team from '../components/team'
 
 export default function About() {
     return(
