@@ -1,5 +1,5 @@
 import React from "react";
-// import Donate from "./components/donate";
+import Donate from "./components/donate";
 // import Slider from "./components/slider";
 // import Feature from "./components/feature";
 // import Product from "./components/product";
@@ -12,7 +12,7 @@ import Navbar from "./components/navbar";
 export default function Home() {
   return (
     <>
-      {/* <Donate /> */}
+      <Donate />
       <Navbar/>
       <Banner/>
       {/* <Slider />

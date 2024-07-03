@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './index.css';
 import Home from "./home";
-import PageNotFound from "./404Page";
-import Donation from './donation';
+import PageNotFound from "./pages/404Page";
+import Donation from './pages/donation';
+import About from './pages/about';
+import More from './pages/more';
 
 export default function App(){
     return(
@@ -17,8 +19,16 @@ export default function App(){
                     element={<PageNotFound />}
                 />
                 <Route
-                    path="/donation"
+                        path="/more"
+                        element={<More/>}
+                />
+                <Route
+                    path="/donate"
                     element={<Donation/>}
+                />
+                <Route
+                    path="/about"
+                    element={<About/>}
                 />
             </Routes>
         </Router>
