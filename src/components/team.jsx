@@ -31,7 +31,7 @@ export default function Team() {
                                 <li key={idx}>
                                     <div className="w-24 h-24 mx-auto">
                                         <img
-                                            src={item.avatar}
+                                            src={AyushDP}
                                             className="w-full h-full rounded-full"
                                             alt=""
                                         />
