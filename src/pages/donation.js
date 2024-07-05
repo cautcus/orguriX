@@ -124,8 +124,24 @@ const Form = () => {
                 />
               </div>
               <div>
+                <label className="font-medium text-green-400" htmlFor="number">
+                  Mobile Number
+                </label>
+                <input
+                  type="number"
+                  required
+                  className="w-full mt-2 px-3 py-2 text-white bg-transparent outline-none border focus:border-gray-800 shadow-sm rounded-lg"
+                  name="number"
+                />
+                <ValidationError
+                  prefix="Number"
+                  field="number"
+                  errors={state.errors}
+                />
+              </div>
+              <div>
                 <label className="font-medium text-green-400" htmlFor="message">
-                  Message
+                  Address
                 </label>
                 <textarea
                   required
@@ -143,7 +159,7 @@ const Form = () => {
                 type="submit"
                 disabled={state.submitting}
               >
-                Submit
+                Clean
               </button>
             </form>
           </div>

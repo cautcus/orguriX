@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import AyushDP from "../img/ayush-dp.jpg"
 
 const TeamMember = ({ initials, name, title, image, insta, linkin }) => {
   const [hovered, setHovered] = useState(false);
@@ -68,8 +69,7 @@ const teamMembers = [
     title: "Founder & CTO",
     linkedin: "https://www.linkedin.com/in/cautcus/",
     instagram: "https://www.instagram.com/cautcus/",
-    image:
-      "https://orgurix.vercel.app/static/media/ayush-dp.2a7d5f647582b67e6a09.jpg",
+    image:[AyushDP],
   },
 ];
 
