@@ -32,6 +32,15 @@ export default function Footer() {
                 Breathe
               </a>
             </li>
+
+            <li>
+              <a
+                className="text-green-900 transition hover:text-green-00/75"
+                href="mailto:orgurix.in@gmail.com"
+              >
+                Contact
+              </a>
+            </li>
           </ul>
 
           <ul className="mt-12 flex justify-center gap-6 md:gap-8">

@@ -41,7 +41,7 @@ const Banner = ({ onToggle }) => {
             </button>
             <a
               className="flex items-center justify-center gap-x-1 py-2 px-4 text-gray-700 hover:text-gray-900 font-medium duration-150 md:inline-flex"
-              href="mailto:orgurix@gmail.com"
+              href="mailto:orgurix.in@gmail.com"
             >
               Contact sales
               <svg
@@ -81,12 +81,12 @@ const Form = () => {
       <main className="relative pb-28 pt-4">
         <div className="relative z-10 max-w-screen-xl mx-auto text-gray-600 sm:px-4 md:px-8">
           <div className="max-w-lg space-y-3 px-4 sm:mx-auto sm:text-center sm:px-0">
-            <h3 className="text-green-600 font-semibold">Contact</h3>
+            <h3 className="text-green-600 font-semibold">Recycle</h3>
             <p className="text-green-900 text-3xl font-semibold sm:text-4xl">
-              Get in touch
+              Be A Hero
             </p>
             <p className="text-gray-500">
-              We’d love to hear from you! Please fill out the form bellow.
+              Please fill out the form bellow
             </p>
           </div>
           <div className="mt-12 mx-auto px-4 p-8 bg-gray-900 sm:max-w-lg sm:px-8 sm:rounded-xl">
