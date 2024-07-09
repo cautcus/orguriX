@@ -69,7 +69,7 @@ export default function Footer() {
 
             <li>
               <a
-                href="https://www.instagram.com/orgurix.in"
+                href="https://www.instagram.com/orgurix"
                 rel="noreferrer"
                 target="_blank"
                 className="text-green-900 transition hover:text-green-900/75"
