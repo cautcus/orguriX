@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import AyushDP from "../img/ayush-dp.jpg"
+import ShreyasDP from "../img/shreyas-dp.jpg"
 
 const TeamMember = ({ initials, name, title, image, insta, linkin }) => {
   const [hovered, setHovered] = useState(false);
@@ -71,6 +72,14 @@ const teamMembers = [
     instagram: "https://www.instagram.com/cautcus/",
     image:[AyushDP],
   },
+  {
+    initials: "SD",
+    name: "Shreyas Das",
+    title: "Co-Founder & COO",
+    linkedin: "https://www.linkedin.com/in/cautcus/",
+    instagram: "https://www.instagram.com/cautcus/",
+    image:[ShreyasDP],
+  }
 ];
 
 export default function Team() {
