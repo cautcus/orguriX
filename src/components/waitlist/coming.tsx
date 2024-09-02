@@ -23,7 +23,7 @@ export const buttons = [
 
 export default function ComingSoon() {
   const calculateTimeLeft = () => {
-    const difference = +new Date("2024-09-08") - +new Date();
+    const difference = +new Date(2024, 8, 8, 18, 30, 0, 0) - +new Date();
     let timeLeft = {
       days: 0,
       hours: 0,
