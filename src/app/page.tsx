@@ -4,7 +4,6 @@ import { Topnav } from "@/components/navbar/topnav";
 import Footer from "@/components/footer/Footer";
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import SpinnerLoader from '@/components/ui/loader';
-import Coming from "@/components/waitlist/coming";
 import { TextGenerateEffect } from "../components/ui/text-generate-effect";
 import Grid from "@/components/grid/grid";
 import { Feature } from "@/components/h-grid/feature";
@@ -54,15 +53,13 @@ export default function Home() {
     </div>
     <GoogleAnalytics/>
     <Topnav />
-    <Coming/>
-    {/*
     <Slider/>
     <AppleCardsCarouselDemo/>
     <div className="mx-auto max-w-xl text-center pt-20" id="shop">
           <TextGenerateEffect words="Introducing Our Premier Line of Organic Essentials"/>
     </div>
     <CardA/>  
-    <Reviews/>*/}
+    <Reviews/>
     <Footer/> 
 
     {/* Grid Components */}

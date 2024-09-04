@@ -86,6 +86,13 @@ function Navbar({ className }: { className?: string }) {
     }
   };
 
+  const truncateText = (text: string, wordLimit: number) => {
+    const words = text.split(" ");
+    return words.length > wordLimit
+      ? words.slice(0, wordLimit).join(" ") + "..."
+      : text;
+  };
+
   return (
     <>
       <div
@@ -100,7 +107,7 @@ function Navbar({ className }: { className?: string }) {
               <a href="/" className="text-white font-semibold"><Image width={60} height={60} src="/img/icon.png" alt={""}/></a>
             </div>
             <div className="flex items-center justify-center w-1/3 space-x-2">
-              {/* <MenuItem setActive={setActive} active={active} item={"Product"} id={"product"}>
+              <MenuItem setActive={setActive} active={active} item={"Glass Bottle"} id={"product"}>
                 <div className="text-sm grid grid-cols-1 gap-10 p-4">
                 {products.map((product) => (
                 <ProductItem
@@ -108,11 +115,10 @@ function Navbar({ className }: { className?: string }) {
                 title={product.name}
                 href={product.goto}
                 src={product.image}
-                description={product.description}
+                description= {truncateText(product.description,10)}
               /> ))}
                 </div>
-              </MenuItem> */}
-              <HoveredLink href="#">Coming Soon</HoveredLink>
+              </MenuItem>
             </div>
             <div className="flex items-center justify-end w-1/3 space-x-4">
             {user ? (
