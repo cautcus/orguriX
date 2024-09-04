@@ -67,7 +67,7 @@ export default function Home() {
         <div className="mx-auto max-w-xl text-center px-4 pb-12">
           <TextGenerateEffect words="Introducing Our Premier Line of Organic Essentials"/>
         </div>
-        <Grid />
+        <Grid /> 
         </div> 
       <Feature />*/}
     </>
