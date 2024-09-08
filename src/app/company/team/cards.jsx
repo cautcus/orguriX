@@ -62,6 +62,7 @@ const teamMembers = [
     title: "CMO",
     image:'/img/debarati-dp.jpg',
     instagram: "https://www.instagram.com/imdebaratisa/",
+    linkedin: "https://www.linkedin.com/in/debarati-saha-4b8838317/",
   }
 ];
 
