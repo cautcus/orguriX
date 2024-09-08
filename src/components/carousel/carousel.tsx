@@ -31,11 +31,6 @@ const DummyContent = ({ index }: { index: number }) => {
       buy: "/product/crimson-craft",
     },
     {
-      img: "/img/GOG/carousel/DSCN3325-removebg-preview.png",
-      para: "Discover the enchanting charm of Floral Fusion, where nature's beauty comes alive in a vibrant display of colors and patterns. This exquisite piece showcases a delightful array of blooming flowers, hand-painted in delicate detail, set against a background that bursts with life. The harmonious blend of hues—rich reds, soft pinks, and refreshing greens—creates a visual symphony that embodies the essence of springtime. Floral Fusion is more than just a decorative item; it's a celebration of growth, renewal, and the timeless elegance of nature. Perfect for brightening up any space, this piece adds a touch of serenity and joy to your home. Let Floral Fusion be a constant reminder of the beauty that surrounds us, bringing warmth and freshness to your everyday life.",
-      buy: "/product/floral-fusion",
-    },
-    {
       img: "/img/GOG/carousel/DSCN3250-removebg-preview.png",
       para: "Bask in the glow of Radiant Flora, a stunning piece that captures the vibrant energy of nature in full bloom. This artwork features a striking yellow flower set against a harmonious backdrop of white, green, and yellow, radiating warmth and vitality. Each brushstroke is a tribute to the delicate balance of color and form, creating a piece that is both uplifting and soothing. Radiant Flora embodies the joy of sunny days and the peacefulness of a flourishing garden, making it a perfect addition to any room that needs a touch of natural beauty. Whether as a centerpiece or an accent, this piece will bring light and life to your space, reminding you of the simple pleasures found in nature’s brilliance. Let Radiant Flora be your daily source of inspiration and serenity.",
       buy: "/product/radiant-flora",
@@ -84,13 +79,6 @@ const data = [
     src:"/img/GOG/carousel/DSCN3295.jpg",
     content: <DummyContent index={1} />,
   },
-  {
-    category: "Glass Bottle",
-    title: "Floral Fusion",
-    src: "/img/GOG/carousel/DSCN3234.jpg",
-    content: <DummyContent index={2} />,
-  },
-
   {
     category: "Glass Bottle",
     title: "Radiant Flora",
