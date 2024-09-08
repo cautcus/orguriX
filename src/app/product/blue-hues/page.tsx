@@ -295,7 +295,7 @@ const ProductOverviewPage = () => {
       <span className="ml-auto text-white">{product.rating}</span>
     </div>
     <div className="flex border-t border-b mb-6 border-gray-800 py-2">
-      <span className="text-gray-500">Price <span className=" px-2 text-green-200">[70% OFF]</span></span>
+      <span className="text-gray-500">Price <span className=" px-2 text-green-200">[30% OFF]</span></span>
       <span className="ml-auto text-green-500 flex items-center">
       <span className="line-through px-2 text-red-500">₹{product.originalPrice}</span> ₹{product.price}
       </span>
