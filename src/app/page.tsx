@@ -11,7 +11,6 @@ import { CardA } from "@/components/cards/3dcard";
 import { Reviews } from "@/components/review/review";
 import { AppleCardsCarouselDemo } from "@/components/carousel/carousel";
 import { Slider } from "@/components/banner/slider";
-import ComingSoon from "@/components/waitlist/coming";
 import Script from "next/script";
 
 
@@ -54,22 +53,21 @@ export default function Home() {
     </div>
     <GoogleAnalytics/>
     <Topnav />
-    <ComingSoon/>
-    {/* <Slider/>
+    <Slider/>
     <AppleCardsCarouselDemo/>
     <div className="mx-auto max-w-xl text-center pt-20" id="shop">
           <TextGenerateEffect words="Introducing Our Premier Line of Organic Essentials"/>
     </div>
     <CardA/>  
-    <Reviews/> */}
+    <Reviews/>
     <Footer/> 
 
-    {/* Grid Components 2*/}
+    {/* Grid Components */}
       {/* <div>
         <div className="mx-auto max-w-xl text-center px-4 pb-12">
           <TextGenerateEffect words="Introducing Our Premier Line of Organic Essentials"/>
         </div>
-        <Grid />
+        <Grid /> 
         </div> 
       <Feature />*/}
     </>
