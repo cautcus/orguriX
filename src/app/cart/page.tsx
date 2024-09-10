@@ -10,6 +10,7 @@ import Footer from "@/components/footer/Footer";
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import SpinnerLoader from '@/components/ui/loader';
 import Script from "next/script";
+import NotifyAlert from "@/components/ui/alert";
 
 interface CartItem {
   id: string;
@@ -153,30 +154,11 @@ const CartPage = () => {
       <GoogleAnalytics />
       <Topnav />
       <div className="h-screen pt-20">
-        <div className="mx-auto max-w-5xl text-left">
-          {showAlert && (
-            <div
-              className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-              role="alert"
-            >
-              <span className="block sm:inline">{alertMessage}</span>
-              <span
-                className="absolute top-0 bottom-0 right-0 px-4 py-3"
-                onClick={() => setShowAlert(false)}
-              >
-                <svg
-                  className="fill-current h-6 w-6 text-green-500"
-                  role="button"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <title>Close</title>
-                  <path d="M14.348 5.652a.5.5 0 0 0-.707 0L10 9.293 6.36 5.652a.5.5 0 1 0-.707.707L9.293 10l-3.64 3.641a.5.5 0 0 0 .707.707L10 10.707l3.641 3.641a.5.5 0 0 0 .707-.707L10.707 10l3.641-3.641a.5.5 0 0 0 0-.707z" />
-                </svg>
-              </span>
-            </div>
-          )}
-          <TextGenerateEffect words="Shopping Cart" />
+        <div className="mx-auto max-w-5xl pt-8 text-left">
+        {showAlert && (
+            <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}
+          <TextGenerateEffect words="Shopping Cart"/>
         </div>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
           <div className="rounded-lg md:w-2/3">
