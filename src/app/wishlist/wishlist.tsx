@@ -9,6 +9,7 @@ import {
   arrayUnion,
   setDoc,
 } from "firebase/firestore";
+import NotifyAlert from "@/components/ui/alert";
 
 const Wishlist = ({ onClose }: { onClose: () => void }) => {
   const [user, setUser] = useState<any>(null);
@@ -81,28 +82,9 @@ const Wishlist = ({ onClose }: { onClose: () => void }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-black p-4 rounded-md shadow-md w-6/12	">
       
-      {showAlert && (
-        <div
-          className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-          role="alert"
-        >
-          <span className="block sm:inline">{alertMessage}</span>
-          <span
-            className="absolute top-0 bottom-0 right-0 px-4 py-3"
-            onClick={() => setShowAlert(false)}
-          >
-            <svg
-              className="fill-current h-6 w-6 text-green-500"
-              role="button"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <title>Close</title>
-              <path d="M14.348 5.652a.5.5 0 0 0-.707 0L10 9.293 6.36 5.652a.5.5 0 1 0-.707.707L9.293 10l-3.64 3.641a.5.5 0 0 0 .707.707L10 10.707l3.641 3.641a.5.5 0 0 0 .707-.707L10.707 10l3.641-3.641a.5.5 0 0 0 0-.707z" />
-            </svg>
-          </span>
-        </div>
-      )}
+        {showAlert && (
+            <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}
 
         <h3 className="text-4xl font-bold mb-4 text-white">Your Favourites</h3>
         {user ? (

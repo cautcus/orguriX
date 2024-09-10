@@ -15,6 +15,7 @@ import {
 } from "./firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { firestore } from "./firebase";
+import NotifyAlert from "@/components/ui/alert";
 
 export default function AuthForm() {
   const [email, setEmail] = useState<string>("");
@@ -98,17 +99,9 @@ export default function AuthForm() {
 
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      {showAlert && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-          <span className="block sm:inline">{alertMessage}</span>
-          <span className="absolute top-0 bottom-0 right-0 px-4 py-3" onClick={() => setShowAlert(false)}>
-            <svg className="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <title>Close</title>
-              <path d="M14.348 5.652a.5.5 0 0 0-.707 0L10 9.293 6.36 5.652a.5.5 0 1 0-.707.707L9.293 10l-3.64 3.641a.5.5 0 0 0 .707.707L10 10.707l3.641 3.641a.5.5 0 0 0 .707-.707L10.707 10l3.641-3.641a.5.5 0 0 0 0-.707z"/>
-            </svg>
-          </span>
-        </div>
-      )}
+  {showAlert && (
+            <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Welcome to OrguriX
       </h2>

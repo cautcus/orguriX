@@ -6,6 +6,8 @@ import { doc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
 import { Input } from "@/components/login/input";
 import { Label } from "@/components/login/label";
 import { TrashIcon } from "@heroicons/react/outline";
+import NotifyAlert from "@/components/ui/alert";
+
 
 const SavedAddress = ({ onClose }: { onClose: () => void }) => {
   const [address, setAddress] = useState({
@@ -113,28 +115,9 @@ const SavedAddress = ({ onClose }: { onClose: () => void }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
       <div className="bg-neutral-950 p-6 rounded-2xl shadow-md w-3/4 max-w-4xl flex">
         <div className="w-1/3 p-4 border-r border-gray-700">
-        <div>{showAlert && (
-        <div
-          className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-          role="alert"
-        >
-          <span className="block sm:inline">{alertMessage}</span>
-          <span
-            className="absolute top-0 bottom-0 right-0 px-4 py-3"
-            onClick={() => setShowAlert(false)}
-          >
-            <svg
-              className="fill-current h-6 w-6 text-green-500"
-              role="button"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <title>Close</title>
-              <path d="M14.348 5.652a.5.5 0 0 0-.707 0L10 9.293 6.36 5.652a.5.5 0 1 0-.707.707L9.293 10l-3.64 3.641a.5.5 0 0 0 .707.707L10 10.707l3.641 3.641a.5.5 0 0 0 .707-.707L10.707 10l3.641-3.641a.5.5 0 0 0 0-.707z" />
-            </svg>
-          </span>
-        </div>
-      )}</div>
+        <div>  {showAlert && (
+            <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}</div>
           <h2 className="text-green-200 text-lg font-bold mb-4">Enter Your Address</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">

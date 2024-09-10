@@ -13,7 +13,7 @@ import Script from "next/script";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import NotifyAlert from "@/components/ui/alert";
 
 
 
@@ -248,28 +248,9 @@ const ProductOverviewPage = () => {
       <Topnav />
       <section className="text-gray-400 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
-          {showAlert && (
-            <div
-              className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-              role="alert"
-            >
-              <span className="block sm:inline">{alertMessage}</span>
-              <span
-                className="absolute top-0 bottom-0 right-0 px-4 py-3"
-                onClick={() => setShowAlert(false)}
-              >
-                <svg
-                  className="fill-current h-6 w-6 text-green-500"
-                  role="button"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <title>Close</title>
-                  <path d="M14.348 5.652a.5.5 0 0 0-.707 0L10 9.293 6.36 5.652a.5.5 0 1 0-.707.707L9.293 10l-3.64 3.641a.5.5 0 0 0 .707.707L10 10.707l3.641 3.641a.5.5 0 0 0 .707-.707L10.707 10l3.641-3.641a.5.5 0 0 0 0-.707z" />
-                </svg>
-              </span>
-            </div>
-          )}
+        {showAlert && (
+            <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}
           <div className="lg:w-4/5 mx-auto flex flex-wrap pt-12">
   {/* Product Details Section */}
   <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 flex flex-col">
