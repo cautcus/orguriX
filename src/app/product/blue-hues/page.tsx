@@ -283,8 +283,8 @@ const ProductOverviewPage = () => {
       </span>
     </div>
     <div className="flex items-center py-2">
-      <button className="flex mr-auto items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded-3xl" onClick={() => setShowBuy(true)}>
-        Buy Now
+     <button className="flex mr-auto items-center text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none rounded-3xl">
+        Sold Out
       </button>
       <button
         className="rounded-full ml-auto w-12 h-12 bg-neutral-800 hover:bg-neutral-600 p-0 border-0 inline-flex items-center justify-center text-neutral-200 transition-transform duration-300 transform hover:scale-110"
