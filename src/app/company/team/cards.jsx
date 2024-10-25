@@ -1,6 +1,7 @@
 "use client"
 import { React, useState } from "react";
 import { IconBrandInstagram, IconBrandLinkedin } from "@tabler/icons-react";
+import Image from "next/image";
 
 const TeamMember = ({ initials, name, title, image, linkin, insta }) => {
   const [hovered, setHovered] = useState(false);
@@ -16,7 +17,7 @@ const TeamMember = ({ initials, name, title, image, linkin, insta }) => {
       <p className="text-neutral-700">{title}</p>
       {hovered && (
         <div className="absolute inset-0 bg-gray-900 flex flex-col items-center justify-center p-4 ">
-          <img
+          <Image
             className="w-20 h-20 rounded-full mb-2"
             src={image}
             width={20}
@@ -55,14 +56,6 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/shreyas-das-00a273321/",
     instagram: "https://www.instagram.com/avoid___dynamo/",
     image:'/img/shreyas-dp.jpg',
-  },
-  {
-    initials: "DS",
-    name: "Debarati Saha",
-    title: "CMO",
-    image:'/img/debarati-dp.jpg',
-    instagram: "https://www.instagram.com/imdebaratisa/",
-    linkedin: "https://www.linkedin.com/in/debarati-saha-4b8838317/",
   }
 ];
 

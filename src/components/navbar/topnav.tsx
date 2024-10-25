@@ -114,8 +114,6 @@ function Navbar({ className }: { className?: string }) {
                 key={product.id}
                 title={product.name}
                 href={product.goto}
-                src={product.image}
-                description= {truncateText(product.description,10)}
               /> ))}
                 </div>
               </MenuItem>

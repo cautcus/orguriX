@@ -28,8 +28,8 @@ const DummyContent = ({ product }: { product: Product }) => {
         {product.description}
       </p>
       <Image
-         src={product.bgrimage}
-         alt={product.name}
+        src={product.bgrimage}
+        alt={product.name}
         height="500"
         width="500"
         className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
