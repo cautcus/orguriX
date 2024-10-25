@@ -47,7 +47,7 @@ const ProductOverviewPage = () => {
   const [reviewRating, setReviewRating] = useState<number>(1);
   const [shareUrl, setShareUrl] = useState('');
   const [showBuy, setShowBuy] = useState<boolean>(false);
-  const productId = "product-id-5";
+  const productId = "product-id-6";
 
   const settings = {
     dots: true,
