@@ -12,6 +12,7 @@ import { Reviews } from "@/components/review/review";
 import { AppleCardsCarouselDemo } from "@/components/carousel/carousel";
 import { Slider } from "@/components/banner/slider";
 import Script from "next/script";
+import Header from "@/components/offer/header";
 
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
         }}
       />
     </div>
+    <Header/>
     <GoogleAnalytics/>
     <Topnav />
     <Slider/>

@@ -80,7 +80,7 @@ export function CardA() {
   return (
     <section>
       <GoogleAnalytics />
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8" id="products">
         {showAlert && (
             <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
         )}
