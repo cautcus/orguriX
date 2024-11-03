@@ -15,7 +15,7 @@ function Header() {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      const difference = targetDate - now;
+      const difference = targetDate.getTime() - now.getTime();
 
       if (difference <= 0) {
         clearInterval(interval);
@@ -47,7 +47,7 @@ function Header() {
           <a href="#products" className="inline-block underline">
           36% off!
           </a>{" "}
-          Offer ends in {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m
+          Offer ends in {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m {timeRemaining.seconds}s
         </p>
 
         <button
