@@ -1,22 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Header() {
   const [isVisible, setIsVisible] = useState(true);
+  const [timeRemaining, setTimeRemaining] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  // Target date for the countdown (November 7, 2024)
+  const targetDate = new Date('2024-11-07T00:00:00');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        clearInterval(interval);
+        setIsVisible(false); // Hide the header when the countdown ends
+        return;
+      }
+
+      // Calculate time remaining
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      setTimeRemaining({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [targetDate]);
+
+  const handleDismiss = () => {
+    setIsVisible(false);
+  };
 
   return (
     isVisible && (
       <div className="flex items-center justify-between gap-4 bg-red-600 px-4 py-3 text-white">
         <p className="text-sm font-medium">
-        This Diwali, celebrate with{" "}
+        Celebrate Diwali with{" "}
           <a href="#products" className="inline-block underline">
-          36% off on every product
-          </a>
-          {" "}at Orgurix!
+          36% off!
+          </a>{" "}
+          Offer ends in {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m
         </p>
 
         <button
           aria-label="Dismiss"
-          onClick={() => setIsVisible(false)}
+          onClick={handleDismiss}
           className="shrink-0 rounded-lg bg-black/10 p-1 transition hover:bg-black/20"
         >
           <svg
