@@ -1,76 +1,53 @@
 import { useState, useEffect } from 'react';
 
-function Header() {
+function Popup() {
   const [isVisible, setIsVisible] = useState(true);
-  const [timeRemaining, setTimeRemaining] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  // Target date for the countdown (November 7, 2024)
-  const targetDate = new Date('2024-11-07T00:00:00');
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-
-      if (difference <= 0) {
-        clearInterval(interval);
-        setIsVisible(false); // Hide the header when the countdown ends
-        return;
-      }
-
-      // Calculate time remaining
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      setTimeRemaining({ days, hours, minutes, seconds });
-    }, 1000);
-
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, [targetDate]);
 
   const handleDismiss = () => {
     setIsVisible(false);
   };
 
+  useEffect(() => {
+    // Optionally, you can add a delay to show the popup after some time.
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000); // 1 second delay before showing the popup
+
+    return () => clearTimeout(timeout); // Cleanup on component unmount
+  }, []);
+
   return (
     isVisible && (
-      <div className="flex items-center justify-between gap-4 bg-red-600 px-4 py-3 text-white">
-        <p className="text-sm font-medium">
-        Celebrate Diwali with{" "}
-          <a href="#products" className="inline-block underline">
-          36% off!
-          </a>{" "}
-          Offer ends in {timeRemaining.days}d {timeRemaining.hours}h {timeRemaining.minutes}m {timeRemaining.seconds}s
-        </p>
-
-        <button
-          aria-label="Dismiss"
-          onClick={handleDismiss}
-          className="shrink-0 rounded-lg bg-black/10 p-1 transition hover:bg-black/20"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
+      <>
+        {/* Backdrop */}
+        <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
+          {/* Popup Box */}
+          <div className="bg-white p-6 rounded-lg w-11/12 sm:w-1/3 shadow-lg transform scale-100 transition-all duration-300">
+            <h2 className="text-xl font-semibold text-gray-800 text-center mb-4">
+              Transform Waste into Art with Orgurix 🌱
+            </h2>
+            <p className="text-md text-gray-600 text-center mb-6">
+              Join us to create sustainable products, earn passive income, and make a positive impact.
+            </p>
+            <a
+              href="https://forms.gle/AMT6WB9YciYKWeEDA"
+              className="block text-center bg-teal-800 text-white py-2 rounded-lg font-semibold transition-all hover:bg-teal-500 mb-4"
+            >
+              Join Now
+            </a>
+            {/* Close Button */}
+            <button
+              onClick={handleDismiss}
+              className="absolute top-2 right-2 text-gray-600 text-2xl bg-white p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-all"
+              aria-label="Dismiss"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      </>
     )
   );
 }
 
-export default Header;
+export default Popup;
