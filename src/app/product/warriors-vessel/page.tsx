@@ -273,11 +273,15 @@ const ProductOverviewPage = () => {
       <span className="text-gray-500">Rating</span>
       <span className="ml-auto text-white">{product.rating}</span>
     </div>
-    <div className="flex border-t border-b mb-6 border-gray-800 py-2">
+    <div className="flex border-t border-gray-800 py-2">
       <span className="text-gray-500">Price <span className=" px-2 text-green-200">[36% OFF]</span></span>
       <span className="ml-auto text-green-500 flex items-center">
       <span className="line-through px-2 text-red-500">₹{product.originalPrice}</span> ₹{product.price}
       </span>
+    </div>
+    <div className="flex border-t border-b mb-6 border-gray-800 py-2">
+      <span className="text-gray-500">Delivery</span>
+      <p className="ml-auto text-white">within 7 days</p>
     </div>
     <div className="flex items-center py-2">
     <a className="flex mr-auto items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded-3xl" href="https://rzp.io/rzp/warriors-vessel">
