@@ -89,7 +89,7 @@ export function AGrid() {
             className="text-purple-500"
             title="Wishlist"
             description="Save your favorite items and track of products."
-            icon={<IconList className="h-4 w-4 text-purple-500" />}
+            icon={<IconList className="h-4 w-4 text-purple-500"/>}
           />
         </a>
         <a
