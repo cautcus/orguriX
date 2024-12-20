@@ -494,6 +494,7 @@ const ProductOverviewPage = () => {
                   📧 Email Us: <a className="text-green-600 italic font-bold" href="mailto:orgurix.in@gmail.com">orgurix.in@gmail.com</a><br/>
                   📱 WhatsApp Us: <a className="text-green-600 italic font-bold" href="https://wa.me/918981918040">Click here to chat</a><br/>
                   💬 Live Chat: Use the Tawk.to chat window on our website for instant support.<br/>
+                  📍 Operation Address : 273, Hospital Road, Duttapukur, N24PGS, 743248, West Bengal, India
                   </p>
                   <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-200">Our support team is available to assist you every day. Whether it’s about your orders, products, or any inquiries, we’re just a message away!</p>
                 </details>
