@@ -250,6 +250,20 @@ const ProductOverviewPage = () => {
             <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
         )}
           <div className="lg:w-4/5 mx-auto flex flex-wrap pt-12">
+          {/* Product Image Section */}
+          <div className="lg:w-1/2 w-full px-8">
+              <Slider {...settings}>
+                {images.map((image, index) => (
+                  <div key={index}>
+                    <img
+                      alt={`Product Image ${index + 1}`}
+                      className="w-full h-200 object-cover object-center rounded-3xl"
+                      src={image}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
   {/* Product Details Section */}
   <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 flex flex-col">
     <h1 className="text-white text-3xl title-font font-medium mb-4">
@@ -278,10 +292,6 @@ const ProductOverviewPage = () => {
       <span className="ml-auto text-green-500 flex items-center">
       <span className="line-through px-2 text-red-500">₹{product.originalPrice}</span> ₹{product.price}
       </span>
-    </div>
-    <div className="flex border-t border-b mb-6 border-gray-800 py-2">
-      <span className="text-gray-500">Delivery</span>
-      <p className="ml-auto text-white">within 7 days</p>
     </div>
     <div className="flex items-center py-2">
     <a className="flex mr-auto items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded-3xl" href="https://rzp.io/rzp/warriors-vessel">
@@ -359,6 +369,124 @@ const ProductOverviewPage = () => {
         )}
       </div>
     </div>
+    <div className="space-y-4 mt-4">
+              <details className="group border-s-4 border-green-500 bg-gray-50 p-6 dark:bg-gray-900 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">
+                      Shipping & Delivery
+                    </h2>
+
+                    <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3 dark:bg-gray-800 dark:text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-200">
+                    Our goal is to deliver your order as quickly as possible. Once shipped, our reliable logistics partners ensure
+                    delivery to serviceable pin codes across India within 6 to 8
+                    business days. During sale periods, the high volume of
+                    orders may cause slight delays in dispatching. Currently, we
+                    are pleased to offer free shipping on all pre-paid orders
+                    across India.
+                  </p>
+                </details>
+
+                <details className="group border-s-4 border-green-500 bg-gray-50 p-6 dark:bg-gray-900 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">
+                      Return & Refund Policy
+                    </h2>
+
+                    <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3 dark:bg-gray-800 dark:text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-200">
+                  We offer a 7-day return policy for most items. However, if the product is damaged, we do not take responsibility, and the return must be handled by the customer. To return or exchange an item, follow the instructions provided on <a className="text-green-600 italic font-bold" href="/support/exchange">exchange page</a>.
+                  </p>
+                </details>
+
+
+                <details className="group border-s-4 border-green-500 bg-gray-50 p-6 dark:bg-gray-900 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">
+                      Contact Us
+                    </h2>
+
+                    <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3 dark:bg-gray-800 dark:text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-200">
+                  📧 Email Us: <a className="text-green-600 italic font-bold" href="mailto:orgurix.in@gmail.com">orgurix.in@gmail.com</a><br/>
+                  📱 WhatsApp Us: <a className="text-green-600 italic font-bold" href="https://wa.me/918981918040">Click here to chat</a><br/>
+                  💬 Live Chat: Use the Tawk.to chat window on our website for instant support.<br/>
+                  </p>
+                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-200">Our support team is available to assist you every day. Whether it’s about your orders, products, or any inquiries, we’re just a message away!</p>
+                </details>
+
+
+                <details className="group border-s-4 border-green-500 bg-gray-50 p-6 dark:bg-gray-900 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-1.5">
+                    <h2 className="text-lg font-medium text-gray-900 dark:text-white">
+                      Gift Cards & Coupons
+                    </h2>
+
+                    <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3 dark:bg-gray-800 dark:text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-200">
+                  Redeem your gift card or coupon effortlessly by entering the unique code at checkout. If your order total exceeds the value of the gift card or coupon, you can pay the remaining amount at checkout.</p>
+                </details>
+              </div>
     {showReviewForm && (
       <div className="mt-4">
         <textarea
@@ -410,20 +538,6 @@ const ProductOverviewPage = () => {
         ))
       )}
     </div>
-  </div>
-  {/* Product Image Section */}
-  <div className="lg:w-1/2 w-full">
-  <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img
-              alt={`Product Image ${index + 1}`}
-              className="w-full h-200 object-cover object-center rounded-3xl"
-              src={image}
-            />
-          </div>
-        ))}
-      </Slider>
   </div>
 </div>
 
