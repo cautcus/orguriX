@@ -36,6 +36,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NotifyAlert from "@/components/ui/alert";
+import RazorpayButton from "../buyBtn";
 
 interface Product {
   id: string;
@@ -322,12 +323,13 @@ const ProductOverviewPage = () => {
                 </span>
               </div>
               <div className="flex items-center py-2">
-                <a
+                {/* <a
                   className="flex mr-auto items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded-3xl"
                   href="https://rzp.io/rzp/crimson-craft"
                 >
                   Buy Now
-                </a>
+                </a> */}
+                <RazorpayButton buttonId="pl_PagxyJY6xFIfqb" />
                 <button
                   className="rounded-full ml-auto w-12 h-12 bg-neutral-800 hover:bg-neutral-600 p-0 border-0 inline-flex items-center justify-center text-neutral-200 transition-transform duration-300 transform hover:scale-110"
                   onClick={() => handleAddToCart(product)}
