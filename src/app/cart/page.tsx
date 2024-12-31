@@ -1,6 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 import { auth, db } from "@/app/auth/firebase"; // Ensure correct import paths
 import { doc, getDoc, updateDoc, arrayRemove } from "firebase/firestore";
 import Image from "next/image";
@@ -30,18 +36,6 @@ const CartPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [showAlert, setShowAlert] = useState<boolean>(false);
   const [alertMessage, setAlertMessage] = useState<string>("");
-  const [showShareOptions, setShowShareOptions] = useState<boolean>(false);
-  const [shareUrl, setShareUrl] = useState('');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setShareUrl(window.location.href);
-    }
-  }, []);
-
-  const handleShare = () => {
-    setShowShareOptions(!showShareOptions);
-  };
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -108,22 +102,43 @@ const CartPage = () => {
   };
 
   const handleCheckout = () => {
-    const phoneNumber = "918981918040";
-    const message = encodeURIComponent(`
-      *Order Details:*
-      ${cartItems.map(item => `
-      - Name: ${item.name}
-      - Price: ₹${item.price}
-      - Quantity: 1
-      - Color: ${item.color}
-      - Size: ${item.size}
-      - Rating: ${item.rating}
-      `).join('\n')}
-      *Total Price:* ₹${totalPrice}
-    `);
-    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    if (window.Razorpay) {
+      const options = {
+        key: "rzp_live_36XfwVizT73ce5", // Replace with your Razorpay Key
+        amount: totalPrice * 100, // Razorpay expects amount in paise
+        currency: "INR", // Or the currency you're using
+        name: "Orgurix",
+        description:  `
+        Order Details:
+        ${cartItems.map((item) => `
+          - Name: ${item.name}
+          - Price: ₹${item.price}
+          - Quantity: 1
+          - Color: ${item.color}
+          - Size: ${item.size}
+          - Rating: ${item.rating}`).join("\n")}
+        Total Price: ₹${totalPrice}
+      `,
+        image: "/img/logo.png",
+        handler: function (response: any) {
+          console.log(response);
+          // You can handle further actions here, like saving the payment response
+        },
+        prefill: {
+          name: "Customer Name",
+          email: "customer@example.com",
+          contact: "customer_contact_number"
+        },
+        theme: {
+          color: "#11292c"
+        },
+      };
 
-    window.open(url, '_blank');
+      const rzp1 = new (window as any).Razorpay(options);
+      rzp1.open();
+    } else {
+      console.error("Razorpay SDK is not loaded");
+    }
   };
 
   if (loading) {
@@ -132,33 +147,18 @@ const CartPage = () => {
 
   return (
     <>
-     <div>
       <Script
-        id="tawk-to-script"
+        src="https://checkout.razorpay.com/v1/checkout.js"
         strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-              var s=document.createElement("script");
-              s.src='https://embed.tawk.to/66c9e94350c10f7a009fffd6/1i62bec3o'; // Replace with your Tawk.to ID
-              s.async=true;
-              s.charset='UTF-8';
-              s.crossOrigin='*';
-              document.head.appendChild(s);
-            })();
-          `,
-        }}
       />
-    </div>
       <GoogleAnalytics />
       <Topnav />
       <div className="h-screen pt-20">
         <div className="mx-auto max-w-5xl pt-8 text-left">
-        {showAlert && (
+          {showAlert && (
             <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
-        )}
-          <TextGenerateEffect words="Shopping Cart"/>
+          )}
+          <TextGenerateEffect words="Shopping Cart" />
         </div>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
           <div className="rounded-lg md:w-2/3">
@@ -182,7 +182,7 @@ const CartPage = () => {
                   <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div className="flex items-center space-x-4">
                       <p className="text-sm">₹{item.price}</p>
-                      <button onClick={() => handleDeleteItem(item.id)} >
+                      <button onClick={() => handleDeleteItem(item.id)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
