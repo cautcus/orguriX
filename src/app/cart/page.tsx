@@ -7,9 +7,8 @@ declare global {
     Razorpay: any;
   }
 }
-import { auth, db } from "@/app/auth/firebase"; // Ensure correct import paths
+import { auth, db } from "@/app/auth/firebase";
 import { doc, getDoc, updateDoc, arrayRemove } from "firebase/firestore";
-import Image from "next/image";
 import { Topnav } from "@/components/navbar/topnav";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Footer from "@/components/footer/Footer";
