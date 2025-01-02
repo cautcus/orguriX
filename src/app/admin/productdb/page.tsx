@@ -19,6 +19,7 @@ const AddProduct = () => {
     description: "",
     image: "",
     rating: 0,
+    bgrimage: "",
     size: "",
     color: "",
     goto: "",
@@ -135,6 +136,17 @@ const AddProduct = () => {
               type="text"
               name="image"
               value={product.image}
+              onChange={handleInputChange}
+              required
+            />
+          </LabelInputContainer>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="image">Remove BG Image URL</Label>
+            <Input
+              placeholder="https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
+              type="text"
+              name="bgrimage"
+              value={product.bgrimage}
               onChange={handleInputChange}
               required
             />

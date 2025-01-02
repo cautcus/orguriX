@@ -29,14 +29,12 @@ import {
 import { Topnav } from "@/components/navbar/topnav";
 import Footer from "@/components/footer/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import BuyNowForm from "../buyNow";
 import SpinnerLoader from "@/components/ui/loader";
 import Script from "next/script";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NotifyAlert from "@/components/ui/alert";
-import RazorpayButton from "../buyBtn";
 
 interface Product {
   id: string;
@@ -69,7 +67,6 @@ const ProductOverviewPage = () => {
   const [reviewText, setReviewText] = useState<string>("");
   const [reviewRating, setReviewRating] = useState<number>(1);
   const [shareUrl, setShareUrl] = useState("");
-  const [showBuy, setShowBuy] = useState<boolean>(false);
   const productId = "product-id-2";
 
   const settings = {
@@ -232,6 +229,35 @@ const ProductOverviewPage = () => {
     }
   };
 
+  const handleCheckout = () => {
+    if (window.Razorpay) {
+      const options = {
+        key: "rzp_live_36XfwVizT73ce5", // Replace with your Razorpay Key
+        amount: product ? product.price * 100 : 0 , // Razorpay expects amount in paise
+        currency: "INR", // Or the currency you're using
+        name: "Orgurix",
+        description: "",
+        image: "/img/paylog.png",
+        handler: function (response: any) {
+          console.log(response);
+        },
+        prefill: {
+          name: "customer_name",
+          email: "customer@example.com",
+          contact: "customer_contact_number"
+        },
+        theme: {
+          color: "#11292c"
+        },
+      };
+
+      const rzp1 = new (window as any).Razorpay(options);
+      rzp1.open();
+    } else {
+      console.error("Razorpay SDK is not loaded");
+    }
+  };
+
   const shareText = `Check out this product: ${product?.name}`;
 
   if (loading) {
@@ -245,6 +271,10 @@ const ProductOverviewPage = () => {
   return (
     <>
       <div>
+      <Script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        strategy="afterInteractive"
+      />
         <Script
           id="tawk-to-script"
           strategy="afterInteractive"
@@ -323,13 +353,12 @@ const ProductOverviewPage = () => {
                 </span>
               </div>
               <div className="flex items-center py-2">
-                {/* <a
+                <button
                   className="flex mr-auto items-center text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded-3xl"
-                  href="https://rzp.io/rzp/crimson-craft"
+                  onClick={handleCheckout}
                 >
                   Buy Now
-                </a> */}
-                <RazorpayButton buttonId="pl_PagxyJY6xFIfqb" />
+                </button>
                 <button
                   className="rounded-full ml-auto w-12 h-12 bg-neutral-800 hover:bg-neutral-600 p-0 border-0 inline-flex items-center justify-center text-neutral-200 transition-transform duration-300 transform hover:scale-110"
                   onClick={() => handleAddToCart(product)}
@@ -409,7 +438,39 @@ const ProductOverviewPage = () => {
                 </div>
               </div>
 
-              <div className="space-y-4 mt-4">
+              {showReviewForm && (
+                <div className="mt-4">
+                  <textarea
+                    className="w-full p-2 border border-gray-300 rounded-lg mb-2 text-neutral-950"
+                    placeholder="Write your review..."
+                    value={reviewText}
+                    onChange={(e) => setReviewText(e.target.value)}
+                  />
+                  <div className="flex items-center mb-2">
+                    {Array.from({ length: 5 }, (_, index) => (
+                      <button
+                        key={index}
+                        className={`p-2 ${
+                          index < reviewRating
+                            ? "text-yellow-400"
+                            : "text-gray-500"
+                        }`}
+                        onClick={() => setReviewRating(index + 1)}
+                      >
+                        <IconStar stroke={2} />
+                      </button>
+                    ))}
+                  </div>
+                  <button
+                    className="bg-neutral-800 hover:bg-neutral-600 p-3 rounded-3xl text-neutral-200"
+                    onClick={handleSubmitReview}
+                  >
+                    Submit Review
+                  </button>
+                </div>
+              )}
+
+<div className="space-y-4 mt-4">
               <details className="group border-s-4 border-green-500 bg-gray-50 p-6 dark:bg-gray-900 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                     <h2 className="text-lg font-medium text-gray-900 dark:text-white">
@@ -529,37 +590,6 @@ const ProductOverviewPage = () => {
                 </details>
               </div>
 
-              {showReviewForm && (
-                <div className="mt-4">
-                  <textarea
-                    className="w-full p-2 border border-gray-300 rounded-lg mb-2 text-neutral-950"
-                    placeholder="Write your review..."
-                    value={reviewText}
-                    onChange={(e) => setReviewText(e.target.value)}
-                  />
-                  <div className="flex items-center mb-2">
-                    {Array.from({ length: 5 }, (_, index) => (
-                      <button
-                        key={index}
-                        className={`p-2 ${
-                          index < reviewRating
-                            ? "text-yellow-400"
-                            : "text-gray-500"
-                        }`}
-                        onClick={() => setReviewRating(index + 1)}
-                      >
-                        <IconStar stroke={2} />
-                      </button>
-                    ))}
-                  </div>
-                  <button
-                    className="bg-neutral-800 hover:bg-neutral-600 p-3 rounded-3xl text-neutral-200"
-                    onClick={handleSubmitReview}
-                  >
-                    Submit Review
-                  </button>
-                </div>
-              )}
               <div className="mt-6">
                 <h2 className="text-2xl font-bold text-white mb-4">Reviews</h2>
                 {reviews.length === 0 ? (
@@ -598,9 +628,6 @@ const ProductOverviewPage = () => {
         </div>
       </section>
       <Footer />
-      {showBuy && (
-        <BuyNowForm onClose={() => setShowBuy(false)} product={product} />
-      )}
     </>
   );
 };

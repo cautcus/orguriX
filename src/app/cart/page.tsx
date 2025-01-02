@@ -118,7 +118,7 @@ const CartPage = () => {
           - Rating: ${item.rating}`).join("\n")}
         Total Price: ₹${totalPrice}
       `,
-        image: "/img/logo.png",
+        image: "/img/paylog.png",
         handler: function (response: any) {
           console.log(response);
           // You can handle further actions here, like saving the payment response
