@@ -128,7 +128,7 @@ function Navbar({ className }: { className?: string }) {
             <HoveredLink href="/admin">Admin</HoveredLink>
           </>) : 
           <HoveredLink className="text-neutral-200 hover:text-neutral-400" href="/dashboard">{user.displayName || "Dashboard"}</HoveredLink>}
-          <a className="text-yellow-400 hover:text-yellow-600" href="/company/careers">Become A Seller</a>
+          <a className="text-yellow-400 hover:text-yellow-600" href="https://forms.gle/hBPSJqHbXANoSh3QA">Become A Seller</a>
             <HoveredLink href="#" className="text-neutral-200 hover:text-neutral-400 pointer">
             <button onClick={handleLogout}>Logout</button></HoveredLink>
             </div>

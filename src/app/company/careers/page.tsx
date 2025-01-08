@@ -42,12 +42,12 @@ function BecomeASellerPage() {
       />
     </div>
     <Topnav/>
-    <div className="min-h-screen flex items-center justify-center p-20">
+    <div className="min-h-screen flex items-center justify-center p-20 m-12">
       <div className="bg-gray-800 shadow-lg rounded-lg w-full max-w-4xl p-8">
         <h1 className="text-3xl font-semibold text-white mb-6">Become a Seller</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="fullName">
+            <label className="block text-green-300 mb-2" htmlFor="fullName">
               Full Name
             </label>
             <input
@@ -59,7 +59,7 @@ function BecomeASellerPage() {
             />
           </div>
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="email">
+            <label className="block text-green-300 mb-2" htmlFor="email">
               Email Address
             </label>
             <input
@@ -77,7 +77,7 @@ function BecomeASellerPage() {
             />
           </div>
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="phone">
+            <label className="block text-green-300 mb-2" htmlFor="phone">
               Phone Number
             </label>
             <input
@@ -89,7 +89,7 @@ function BecomeASellerPage() {
             />
           </div>
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="storeName">
+            <label className="block text-green-300 mb-2" htmlFor="storeName">
               Store Name
             </label>
             <input
@@ -101,7 +101,7 @@ function BecomeASellerPage() {
             />
           </div>
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="storeDescription">
+            <label className="block text-green-300 mb-2" htmlFor="storeDescription">
               Store Description
             </label>
             <textarea
@@ -119,7 +119,7 @@ function BecomeASellerPage() {
             />
           </div>
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="businessWebsite">
+            <label className="block text-green-300 mb-2" htmlFor="businessWebsite">
               Business Website (optional)
             </label>
             <input
@@ -130,7 +130,7 @@ function BecomeASellerPage() {
             />
           </div>
           <div>
-            <label className="block text-gray-300 mb-2" htmlFor="address">
+            <label className="block text-green-300 mb-2" htmlFor="address">
               Address
             </label>
             <input

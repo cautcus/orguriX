@@ -14,7 +14,7 @@ const Footer = () => {
             <ul>
               <li><a href="/company/about" className="hover:text-white">About Us</a></li>
               <li><a href="/company/team" className="hover:text-white">Our Team</a></li>
-              <li><a href="/company/careers" className="hover:text-white">Careers</a></li>
+              <li><a href="https://forms.gle/hBPSJqHbXANoSh3QA" className="hover:text-white">Careers</a></li>
               <li><a href="/company/contact" className="hover:text-white">Contact Us</a></li>
             </ul>
           </div>
