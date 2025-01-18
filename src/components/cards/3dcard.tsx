@@ -7,6 +7,7 @@ import { db, auth } from "@/app/auth/firebase";
 import { collection, getDocs, doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import NotifyAlert from "@/components/ui/alert";
+import NotifyError from "@/components/ui/error";
 
 interface Product {
   id: string;
@@ -23,6 +24,7 @@ interface Product {
 export function CardA() {
   const [products, setProducts] = useState<Product[]>([]);
   const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [showError, setShowError] = useState<boolean>(false);
   const [alertMessage, setAlertMessage] = useState<string>("");
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export function CardA() {
       } catch (error) {
         console.error("Error fetching products: ", error);
         setAlertMessage("Error fetching products.");
-        setShowAlert(true);
+        setShowError(true);
       }
     };
 
@@ -51,7 +53,7 @@ export function CardA() {
       const user = auth.currentUser;
       if (!user) {
         setAlertMessage("No user is logged in.");
-        setShowAlert(true);
+        setShowError(true);
         return;
       }
 
@@ -73,7 +75,7 @@ export function CardA() {
     } catch (error) {
       console.error("Error adding product to cart: ", error);
       setAlertMessage("Error adding product to cart.");
-      setShowAlert(true);
+      setShowError(true);
     }
   };
 
@@ -81,8 +83,11 @@ export function CardA() {
     <section>
       <GoogleAnalytics />
       <div className="max-w-screen-xl mx-auto px-4 md:px-8" id="products">
-        {showAlert && (
+        {showAlert &&  (
             <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}
+         {showError &&  (
+            <NotifyError alertMessage={alertMessage} setShowError={setShowError} />
         )}
         <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-52">
           {products.map((product) => (

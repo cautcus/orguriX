@@ -10,7 +10,7 @@ import { CardA } from "@/components/cards/3dcard";
 import { Reviews } from "@/components/review/review";
 import { AppleCardsCarouselDemo } from "@/components/carousel/carousel";
 import { Slider } from "@/components/banner/slider";
-import Script from "next/script";
+import Tawkto from "@/components/tawkto";
 
 
 export default function Home() {
@@ -31,45 +31,21 @@ export default function Home() {
 
   return (
     <>
-    <div>
-      <Script
-        id="tawk-to-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-              var s=document.createElement("script");
-              s.src='https://embed.tawk.to/66c9e94350c10f7a009fffd6/1i62bec3o'; // Replace with your Tawk.to ID
-              s.async=true;
-              s.charset='UTF-8';
-              s.crossOrigin='*';
-              document.head.appendChild(s);
-            })();
-          `,
-        }}
-      />
-    </div>
-    <Header/>
+   {/* <Header/> */} {/* Popup Header */}
+
+   {/* Common Components For Every Page */}
+    <Tawkto/>
     <GoogleAnalytics/>
-    <Topnav />
+    <Topnav/>
+
     <Slider/>
-    <AppleCardsCarouselDemo/>
+    {/* <AppleCardsCarouselDemo/> */}
     <div className="mx-auto max-w-xl text-center pt-20" id="shop">
           <TextGenerateEffect words="Introducing Our Premier Line of Organic Essentials"/>
     </div>
     <CardA/>  
     <Reviews/>
     <Footer/> 
-
-    {/* Grid Components */}
-      {/* <div>
-        <div className="mx-auto max-w-xl text-center px-4 pb-12">
-          <TextGenerateEffect words="Introducing Our Premier Line of Organic Essentials"/>
-        </div>
-        <Grid /> 
-        </div> 
-      <Feature />*/}
     </>
   );
 }

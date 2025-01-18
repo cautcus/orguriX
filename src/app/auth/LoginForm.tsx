@@ -16,6 +16,7 @@ import {
 import { doc, setDoc } from "firebase/firestore";
 import { firestore } from "./firebase";
 import NotifyAlert from "@/components/ui/alert";
+import NotifyError from "@/components/ui/error";
 
 export default function AuthForm() {
   const [email, setEmail] = useState<string>("");
@@ -25,6 +26,7 @@ export default function AuthForm() {
   const [isSignup, setIsSignup] = useState(false);
   const [alertMessage, setAlertMessage] = useState<string>("");
   const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [showError, setShowError] = useState<boolean>(false);
   const [showResetModal, setShowResetModal] = useState<boolean>(false);
   const [resetEmail, setResetEmail] = useState<string>("");
 
@@ -37,7 +39,7 @@ export default function AuthForm() {
     } catch (error: any) {
       console.error("Error signing in: ", error);
       setAlertMessage(error.message);
-      setShowAlert(true);
+      setShowError(true);
     }
   };
 
@@ -61,9 +63,7 @@ export default function AuthForm() {
     } catch (error: any) {
       console.error("Error signing up or saving user info: ", error);
       setAlertMessage(error.message);
-      setShowAlert(true);
-
-      const userNum = phoneNumber
+      setShowError(true);
     }
   };
 
@@ -75,7 +75,7 @@ export default function AuthForm() {
     } catch (error: any) {
       console.error("Error signing in with Google: ", error);
       setAlertMessage(error.message);
-      setShowAlert(true);
+      setShowError(true);
     }
   };
 
@@ -93,7 +93,7 @@ export default function AuthForm() {
     } catch (error: any) {
       console.error("Error sending password reset email: ", error);
       setAlertMessage(error.message);
-      setShowAlert(true);
+      setShowError(true);
     }
   };
 
@@ -101,6 +101,9 @@ export default function AuthForm() {
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
   {showAlert && (
             <NotifyAlert alertMessage={alertMessage} setShowAlert={setShowAlert} />
+        )}
+  {showError && (
+            <NotifyError alertMessage={alertMessage} setShowError={setShowError} />
         )}
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Welcome to OrguriX
